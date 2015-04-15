@@ -43,7 +43,7 @@ module Shenzhen::Plugins
 
       def transport
         xcode = `xcode-select --print-path`.strip
-        tool = File.join(File.dirname(xcode), "Applications/Application Loader.app/Contents/MacOS/itms/bin/iTMSTransporter").gsub(/\s/, '\ ')
+        tool = File.join(File.dirname(xcode), "Applications/Application Loader.app/Contents/itms/bin/iTMSTransporter").gsub(/\s/, '\ ')
 
         args = [tool, "-m upload", "-f Package.itmsp", "-u #{Shellwords.escape(@account)}", "-p #{Shellwords.escape(@password)}"]
         command = args.join(' ')
